@@ -17,9 +17,9 @@
         <img :src="product.image" />
         <h3>{{product.name}}</h3>
         <div>{{product.cost}}</div>
-        <button @click="increment()"></button>
-        <p>{{ product.quantity} }</p>
-       
+        <button @click="increment(product)">+</button>
+        <p>{{ product.quantity}}</p>
+         <button  @click="decrement(product)">-</button>
      
         <div class="incrementDecrement">
   
@@ -30,36 +30,42 @@
          
  
       </div>
-      
-      <div v-for="(product,index) in cart" :key="index" class="totalPrice">
-        <div>{{ sumTotal(product) | currency}}</div>
-      </div>
+  
+        <div >Total price: {{ sumTotals }}$</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["cart"],
-    data: () => {
+  props: ["cart","counters"],
+    data() {
     return { 
-      quantity: 0
     };
   },
   methods: {
     removeItemFromCart(product) {
       this.$emit("removeItemFromCart", product);
+      
     },
-    sumTotal(product) {
-     return product.quantity * product.cost 
-     
+    increment(product) {
+      product.quantity = product.quantity === 10 ? 10 : product.quantity + 1;
+   
     },
-    increment() {
-      this.product.quantity++
+        decrement(product) {
+    product.quantity = product.quantity === 1 ? 1 : product.quantity - 1;
+
     }
   },
   computed: {
-
+ sumTotals() {
+      let t = 0;
+     for (let index = 0; index < this.cart.length; index++ ) {
+        t += this.cart[index].cost * this.cart[index].quantity
+     }
+     return t.toFixed(2)
+     
+    },
   }
 
 }
@@ -107,6 +113,7 @@ export default {
   display: flex;
   padding: 15px;
   text-align: center;
+  color: black;
   justify-content: center;
   border-bottom: 1px solid grey;
   }
@@ -131,16 +138,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
+}
   button {
     height: 50px;
     width: 45px;
-    margin: 5px;
     color: black;
     padding: 0;
   }
-}
 #trash {
   margin-bottom: 50px;
   background: none;

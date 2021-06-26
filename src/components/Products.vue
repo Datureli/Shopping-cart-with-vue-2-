@@ -3,6 +3,7 @@
     <b-container>
       <div class="products" >
         <div v-for="(product, index) in products" :key="index">
+       
           <b-col
             cols="4"
             sm="auto"
@@ -29,14 +30,16 @@
               >
                 <h3>{{ product.name }}</h3>
                 <div class="cost">{{ product.cost }}</div>
+                {{ product.quantity }}
                 <b-button size="sm" @click="addItemToCart(product)"
-                  >Add to cart</b-button
-                >
+                  >Add to cart</b-button>
+              
               </b-col>
             </b-col>
           </b-col>
         </div>
       </div>
+   
     </b-container>
     <b-container>
       <b-row> </b-row>
@@ -52,9 +55,9 @@ export default {
         {
           quantity: 0,
           name: "Tomato",
-          cost: "0.99",
+          cost: "2.50",
           image: require("../assets/tomato.jpg"),
-          id: 231
+          id: 231,
         },
         {
           quantity: 0,
@@ -66,18 +69,19 @@ export default {
         {
           quantity: 0,
           name: "Grapes",
-          cost: "0.99",
+          cost: "3.21",
           image: require("../assets/grapes.jpg"),
           id: 2116
         },
         {
           quantity: 0,
           name: "Onion",
-          cost: "5.99",
+          cost: "6.22",
           image: require("../assets/onion.jpg"),
           id: 631
         },
       ],
+      cartItems: [],
     };
   },
   methods: {

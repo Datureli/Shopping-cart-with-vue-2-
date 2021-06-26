@@ -3,9 +3,11 @@
     <NavigationMobile v-if="mobileView" />
     <Navigation v-else />
     <header>
+
       <h1 @click="navigateTo('products')">V<span>egeislan</span>d</h1>
  
       <button @click="navigateTo('cart')">
+  
         {{ counter }}
 
         <img src="./assets/shopping-basket.png" />
@@ -13,10 +15,11 @@
     </header>
     <Navbar />
     <div v-if="page === 'cart'">
-      <Cart v-on:removeItemFromCart="removeItemFromCart" :cart="cart" />
+      <Cart @removeItemFromCart="removeItemFromCart" :cart="cart" />
     </div>
     <div v-if="page === 'products'">
       <Products @addItemToCart="addItemToCart" />
+
     </div>
   </div>
 </template>
@@ -25,6 +28,7 @@
 import Products from "./components/Products.vue";
 import Cart from "./components/Cart.vue";
 export default {
+
   data() {
     return {
       page: "products",
@@ -34,9 +38,6 @@ export default {
     };
   },
   methods: {
-    sumTotal() {
-      return this.product.quantity * this.product.cost
-    },
 
     addItemToCart(product) {
       if (product.quantity === 0) {
@@ -50,6 +51,8 @@ export default {
     },
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
+      this.counter -= 1
+     
     },
     navigateTo(page) {
       this.page = page;
