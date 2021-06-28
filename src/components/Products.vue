@@ -3,24 +3,19 @@
     <b-container>
       <div class="products" >
         <div v-for="(product, index) in products" :key="index">
-       
           <b-col
-            cols="4"
-            sm="auto"
-            size="lg"
             id="ramka"
-            style="margin: 10px 10px 10px 20px;
+            style="margin: 10px 0px 5px 0px;
                   background: whitesmoke;
                   display: flex;
                   width: 375px;
-                  height: 160px;
-                  margin: 0;"
+                  height: 160px;          "
           >
             <img
               :src="product.image"
-              style="width: 120px;
-                   height: 120px;
-                   margin: 0;
+              style="width: 135px;
+                   height: 135px;
+                   margin: 15px auto;
                    display: column;"
             />
             <b-col>
@@ -30,10 +25,8 @@
               >
                 <h3>{{ product.name }}</h3>
                 <div class="cost">{{ product.cost }}</div>
-                {{ product.quantity }}
-                <b-button size="sm" @click="addItemToCart(product)"
-                  >Add to cart</b-button>
-              
+                <b-button size="sm" @click="addItemToCart(product)"   >Add to cart</b-button>
+         
               </b-col>
             </b-col>
           </b-col>
@@ -89,17 +82,59 @@ export default {
       this.$emit("addItemToCart", product);
     },
   },
+  computed: {
+              sumQuantity() {
+     let t = 0;
+     for (let index = 0; index < this.cart.length; index++ ) {
+        t += this.cart[index].quantity
+     }
+     return t
+     
+  },
+  }
 };
 </script>
 
 <style scoped>
-.container {
-  width: 46%;
-  height: 370px;
-  margin-top: 15px;
-  display: flex;
-}
 #ramka {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.products {
+  text-align: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 80px 160px;
+}
+.products button {
+  padding: 10px;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 690px) {
+.products {
+  display: grid;
+  grid-template-columns: none;
+  margin-left: 30px;
+  margin-right: auto;
+}
+}
+@media only screen and (min-width: 691px) and (max-width: 1100px)  {
+
+.products {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 40px 0px;
+}
+.products button {
+  padding: 10px;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 }
 </style>

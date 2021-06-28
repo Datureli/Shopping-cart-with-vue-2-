@@ -1,25 +1,19 @@
 <template>
   <div>
-    <NavigationMobile v-if="mobileView" />
-    <Navigation v-else />
     <header>
-
       <h1 @click="navigateTo('products')">V<span>egeislan</span>d</h1>
- 
       <button @click="navigateTo('cart')">
-  
-        {{ counter }}
-
+        <p v-for="(product, id) in cart" :key="id">
+          {{ sumQuantity }}
+        </p>
         <img src="./assets/shopping-basket.png" />
       </button>
     </header>
-    <Navbar />
     <div v-if="page === 'cart'">
       <Cart @removeItemFromCart="removeItemFromCart" :cart="cart" />
     </div>
     <div v-if="page === 'products'">
       <Products @addItemToCart="addItemToCart" />
-
     </div>
   </div>
 </template>
@@ -28,43 +22,38 @@
 import Products from "./components/Products.vue";
 import Cart from "./components/Cart.vue";
 export default {
-
+    components: { Products, Cart },
   data() {
     return {
       page: "products",
       cart: [],
       product: true,
-      counter: 0,
     };
   },
   methods: {
-
     addItemToCart(product) {
       if (product.quantity === 0) {
-        this.counter += 1;
         product.quantity += 1;
         this.cart.push(product);
       } else {
-        this.counter += 1;
         product.quantity += 1;
       }
     },
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
-      this.counter -= 1
-     
     },
     navigateTo(page) {
       this.page = page;
     },
-    handleView() {
-      this.mobileView = window.innerWidth <= 990;
-    },
   },
-  components: { Products, Cart },
-  created() {
-    this.handleView();
-    window.addEventListener("resize", this.handleView);
+  computed: {
+    sumQuantity() {
+      let t = 0;
+      for (let index = 0; index < this.cart.length; index++) {
+        t += this.cart[index].quantity;
+      }
+      return t;
+    },
   },
 };
 </script>
@@ -75,28 +64,16 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   max-width: 100%;
   overflow-x: hidden;
   text-decoration: none;
 }
-.products {
-  text-align: center;
-  justify-content: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 80px 100px;
-}
-.products button {
-  padding: 10px;
-  color: white;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+
 header {
   height: 90px;
-  box-shadow: 2px 2px 5px blue;
+  box-shadow: 2px 2px 5px rgb(0, 255, 42);
   background-color: green;
   text-align: right;
   font-size: 30px;
@@ -106,7 +83,11 @@ header {
     height: 70px;
     transition: 0.2s;
   }
+  p {
+    position: fixed;
+  }
   button {
+    width: 100;
     padding: 10px;
     font-size: 20px;
     border: none;
