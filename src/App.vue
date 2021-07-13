@@ -107,9 +107,9 @@ header {
     font-weight: 900;
   }
   span {
-    color: rgb(43, 197, 43);
+    color: rgb(96, 134, 96);
     border-bottom: 1px solid green;
-    padding-bottom:n4px;
+    padding-bottom: 4px;
   }
 }
 </style>
