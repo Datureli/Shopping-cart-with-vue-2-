@@ -101,13 +101,14 @@ header {
   }
   h1 {
     float: left;
+       color: rgb(24, 150, 24);
     margin: 18px 20px auto;
     display: flex;
     cursor: pointer;
     font-weight: 900;
   }
   span {
-    color: rgb(96, 134, 96);
+    color: rgb(24, 150, 24);
     border-bottom: 1px solid green;
     padding-bottom: 4px;
   }

@@ -124,7 +124,6 @@ export default {
 @media only screen and (min-width: 691px) and (max-width: 1100px)  {
 
 .products {
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 40px 0px;

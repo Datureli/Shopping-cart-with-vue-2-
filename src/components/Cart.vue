@@ -15,7 +15,7 @@
       <div v-for="(product, index) in cart" :key="index" class="misiowy">
         <img :src="product.image" />
         <h3>{{ product.name }}</h3>
-        <div>{{ product.cost }}</div>
+        <h3>{{ product.cost }}</h3>
         
           <button class="plusMinus" @click="increment(product)">+</button>
           <p>{{ product.quantity }}</p>
@@ -73,7 +73,6 @@ export default {
     margin-top: 30px;
   }
   img {
-    margin-top: 20px;
     width: 250px;
     height: 250px;
   }
@@ -83,12 +82,12 @@ export default {
   margin-right: 150px;
   margin-left: 150px;
   flex-direction: column;
-  text-align: center;
-  justify-content: center;
+
 
   img {
     width: 50px;
     height: 50px;
+    padding: 5px;
   }
 
   h3,
@@ -97,6 +96,9 @@ export default {
     margin-right: auto;
     margin-left: 28px;
     font-size: 35px;
+  }
+  h3 {
+    width: 10%;
   }
 
   .misiowy {
@@ -173,7 +175,7 @@ button {
 .products {
   margin-right: 0px;
   flex-direction: column;
-  line-height: 60px;
+  line-height: 40px;
   margin-left: 0px;
   
 
