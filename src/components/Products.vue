@@ -9,8 +9,7 @@
               background: whitesmoke;
               display: flex;
               width: 375px;
-              height: 160px;
-            "
+              height: 160px;       "
           >
             <img
               :src="product.image"
