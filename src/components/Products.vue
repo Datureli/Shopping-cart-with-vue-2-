@@ -1,38 +1,39 @@
 <template>
   <b-row>
     <b-container>
-      <div class="products" >
+      <div class="products">
         <div v-for="(product, index) in products" :key="index">
           <b-col
             id="ramka"
-            style="margin: 10px 0px 5px 0px;
-                  background: whitesmoke;
-                  display: flex;
-                  width: 375px;
-                  height: 160px;"
+            style="
+              margin: 10px 0px 5px 0px;
+              background: whitesmoke;
+              display: flex;
+              width: 375px;
+              height: 160px;
+            "
           >
             <img
               :src="product.image"
-              style="width: 135px;
-                   height: 135px;
-                   margin: 15px auto;
-                   display: column;"
+              style="
+                width: 135px;
+                height: 135px;
+                margin: 15px auto;
+                display: column;
+              "
             />
             <b-col>
-              <b-col
-                style="display: grid;
-                      margin: 20px 10px auto"
-              >
+              <b-col style="display: grid; margin: 20px 10px auto">
                 <h3>{{ product.name }}</h3>
                 <div class="cost">{{ product.cost }}</div>
-                <b-button size="sm" @click="addItemToCart(product)"   >Add to cart</b-button>
-         
+                <b-button size="sm" @click="addItemToCart(product)"
+                  >Add to cart</b-button
+                >
               </b-col>
             </b-col>
           </b-col>
         </div>
       </div>
-   
     </b-container>
     <b-container>
       <b-row> </b-row>
@@ -57,21 +58,21 @@ export default {
           name: "Apple",
           cost: "0.99",
           image: require("../assets/appe.jpg"),
-          id: 421
+          id: 421,
         },
         {
           quantity: 0,
           name: "Grapes",
           cost: "3.21",
           image: require("../assets/grapes.jpg"),
-          id: 2116
+          id: 2116,
         },
         {
           quantity: 0,
           name: "Onion",
           cost: "6.22",
           image: require("../assets/onion.jpg"),
-          id: 631
+          id: 631,
         },
       ],
       cartItems: [],
@@ -83,15 +84,14 @@ export default {
     },
   },
   computed: {
-              sumQuantity() {
-     let t = 0;
-     for (let index = 0; index < this.cart.length; index++ ) {
-        t += this.cart[index].quantity
-     }
-     return t
-     
+    sumQuantity() {
+      let t = 0;
+      for (let index = 0; index < this.cart.length; index++) {
+        t += this.cart[index].quantity;
+      }
+      return t;
+    },
   },
-  }
 };
 </script>
 
@@ -114,26 +114,25 @@ export default {
   cursor: pointer;
 }
 @media (max-width: 690px) {
-.products {
-  display: grid;
-  grid-template-columns: none;
-  margin-left: 30px;
-  margin-right: auto;
+  .products {
+    display: grid;
+    grid-template-columns: none;
+    margin-left: 30px;
+    margin-right: auto;
+  }
 }
-}
-@media only screen and (min-width: 691px) and (max-width: 1100px)  {
-
-.products {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 40px 0px;
-}
-.products button {
-  padding: 10px;
-  color: white;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+@media only screen and (min-width: 691px) and (max-width: 1100px) {
+  .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 40px 0px;
+  }
+  .products button {
+    padding: 10px;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
 }
 </style>
