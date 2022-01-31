@@ -5,8 +5,7 @@
         <div v-for="(product, index) in products" :key="index">
           <b-col
             id="ramka"
-            style="
-              margin: 10px 0px 5px 0px;
+            style=" margin: 10px 0px 5px 0px;
               background: whitesmoke;
               display: flex;
               width: 375px;
