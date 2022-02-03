@@ -1,24 +1,36 @@
-# vuecart1
+## Table of contents
+* [General info](#general-info)
+* [Features](#features)
+* [Technologies](#technologies)
+* [Status](#status)
+* [Setup](#setup)
 
-## Project setup
+
+## General info
+this project is an advanced front-end learning platform,preparing for recruitment interviews
+
+## Features
+* Learn front-end topics by learning questions
+* Learn english IT words
+
+
+## Technologies
+Project is created with:
+* Vue 2.6.14
+* vuetify ^2.6.1
+* vue-router ^3.5.3
+* vuex ^3.6.2
+* axios ^0.24.0
+
+## Status
+working on
+	
+## Setup
+To run this project, install it locally using npm:
+
 ```
-npm install
+$ cd frontEndLearning
+$ npm install
+$ npm run serve
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
