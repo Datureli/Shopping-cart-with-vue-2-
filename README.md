@@ -7,11 +7,11 @@
 
 
 ## General info
-this project is an advanced front-end learning platform,preparing for recruitment interviews
+this project is an simple shopping cart
 
 ## Features
-* Learn front-end topics by learning questions
-* Learn english IT words
+* add product to cart
+* prevent adding same product to cart
 
 
 ## Technologies
@@ -23,13 +23,13 @@ Project is created with:
 * axios ^0.24.0
 
 ## Status
-working on
+completed
 	
 ## Setup
 To run this project, install it locally using npm:
 
 ```
-$ cd frontEndLearning
+$ cd Shopping-cart-with-vue-2-
 $ npm install
 $ npm run serve
 ```
