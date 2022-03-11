@@ -11,16 +11,15 @@ this project is an simple shopping cart
 
 ## Features
 * add product to cart
+* remove product from cart
+* increase and decrease quantity of product
 * prevent adding same product to cart
+* calculate total price
 
 
 ## Technologies
 Project is created with:
 * Vue 2.6.14
-* vuetify ^2.6.1
-* vue-router ^3.5.3
-* vuex ^3.6.2
-* axios ^0.24.0
 
 ## Status
 completed
