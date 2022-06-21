@@ -23,7 +23,7 @@
         
 
         <button v-on:click="removeItemFromCart(product)" id="trashbutton">
-          <img src="../assets/trash-2199630-1834393.png" id="trash" />
+          <img src="../assets/trash.png" id="trash" />
         </button>
       </div>
 
