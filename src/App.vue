@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1 @click="navigateTo('products')">V<span>egeislan</span>d</h1>
+      <h1 @click="navigateTo('products')">VegeIsland</h1>
       <button @click="navigateTo('cart')">
         <p v-for="(product, id) in cart" :key="id">
           {{ sumQuantity }}
@@ -22,7 +22,7 @@
 import Products from "./components/Products.vue";
 import Cart from "./components/Cart.vue";
 export default {
-    components: { Products, Cart },
+  components: { Products, Cart },
   data() {
     return {
       page: "products",
@@ -32,12 +32,7 @@ export default {
   },
   methods: {
     addItemToCart(product) {
-      if (product.quantity === 0) {
-        product.quantity += 1;
-        this.cart.push(product);
-      } else {
-        product.quantity += 1;
-      }
+      !product.quantity ? this.cart.push(product) && product.quantity++ : product.quantity += 1
     },
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
@@ -73,8 +68,7 @@ body {
 
 header {
   height: 90px;
-  box-shadow: 2px 2px 5px rgb(0, 255, 42);
-  background-color: green;
+  background-color: rgb(0, 255, 42);
   text-align: right;
   font-size: 30px;
 
@@ -93,7 +87,7 @@ header {
     border: none;
     cursor: pointer;
     color: red;
-    background-color: green;
+    background-color: rgb(0, 255, 42);
 
     &:hover {
       filter: contrast(150%);
@@ -101,16 +95,11 @@ header {
   }
   h1 {
     float: left;
-       color: rgb(24, 150, 24);
+    color: rgb(24, 150, 24);
     margin: 18px 20px auto;
     display: flex;
     cursor: pointer;
     font-weight: 900;
-  }
-  span {
-    color: rgb(24, 150, 24);
-    border-bottom: 1px solid green;
-    padding-bottom: 4px;
   }
 }
 </style>
