@@ -6,21 +6,20 @@
     </div>
 
     <div v-if="cart.length > 0" class="parametrs">
-      <h1>Zdjęcie</h1>
-      <h1>Nazwa</h1>
-      <h1>Cena</h1>
-      <h1>Ilość</h1>
+      <h2>Zdjęcie</h2>
+      <h2>Nazwa</h2>
+      <h2>Cena</h2>
+      <h2>Ilość</h2>
     </div>
     <div class="products">
-      <div v-for="(product, index) in cart" :key="index" class="misiowy">
+      <div v-for="product in cart" :key="product" class="productUnderline">
         <img :src="product.image" />
         <h3>{{ product.name }}</h3>
         <h3>{{ product.cost }}</h3>
-        
-          <button class="plusMinus" @click="increment(product)">+</button>
-          <p>{{ product.quantity }}</p>
-          <button class="plusMinus" @click="decrement(product)">-</button>
-        
+
+        <button class="plusMinus" @click="increment(product)">+</button>
+        <p>{{ product.quantity }}</p>
+        <button class="plusMinus" @click="decrement(product)">-</button>
 
         <button v-on:click="removeItemFromCart(product)" id="trashbutton">
           <img src="../assets/trash.png" id="trash" />
@@ -67,7 +66,7 @@ export default {
 }
 .misio {
   text-align: center;
-  h1 {
+  h2 {
     font-size: 100px;
     text-align: center;
     margin-top: 30px;
@@ -82,7 +81,6 @@ export default {
   margin-right: 150px;
   margin-left: 150px;
   flex-direction: column;
-
 
   img {
     width: 50px;
@@ -101,7 +99,7 @@ export default {
     width: 10%;
   }
 
-  .misiowy {
+  .productUnderline {
     width: 95%;
     height: 70px;
     display: flex;
@@ -117,7 +115,7 @@ export default {
   margin-right: auto;
   border-bottom: 3px solid black;
 
-  h1 {
+  h2 {
     margin-left: 30px;
     margin-right: auto;
   }
@@ -155,165 +153,158 @@ button {
   margin-top: 50px;
 }
 @media screen and (max-width: 545px) {
-.misio {
-  text-align: center;
-  h1 {
-    font-size: 45px;
+  .misio {
+    text-align: center;
+    h2 {
+      font-size: 45px;
+    }
   }
-}
-.parametrs {
-  width: 90%;
-  padding: 15px;
+  .parametrs {
+    width: 90%;
+    padding: 15px;
 
-  h1 {
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 18px;
-    line-height: 10px;
+    h1 {
+      font-size: 20px;
+      margin-left: 20px;
+      margin-right: 18px;
+      line-height: 10px;
+    }
   }
-}
-.products {
-  margin-right: 0px;
-  flex-direction: column;
-  line-height: 40px;
-  margin-left: 0px;
-  
+  .products {
+    margin-right: 0px;
+    flex-direction: column;
+    line-height: 40px;
+    margin-left: 0px;
 
-  img {
-    width: 50px;
-    height: 48px;
-    margin-left: 20px;
-  }
+    img {
+      width: 50px;
+      height: 48px;
+      margin-left: 20px;
+    }
 
-  h3,
-  img,
-  div {
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 20px;
-  }
-  h3 {
-    margin-top: 15px;
-  }
+    h3,
+    img,
+    div {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 20px;
+    }
+    h3 {
+      margin-top: 15px;
+    }
 
-  .misiowy {
-    width: 95%;
-    height: 70px;
-    padding: 20px;
+    .productUnderline {
+      width: 95%;
+      height: 70px;
+      padding: 20px;
+    }
+  }
+  #trash {
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .incrementDecrement {
+    button {
+      font-size: 20px;
+    }
   }
 }
-#trash {
-  margin-bottom: 10px;
-  width: 30px;
-  height: 30px;
-}
-.incrementDecrement {
+@media only screen and (min-width: 546px) and (max-width: 800px) {
+  .parametrs {
+    width: 90%;
+    padding: 15px;
 
-  button {
-    font-size: 20px;
+    h1 {
+      font-size: 20px;
+      margin-left: 20px;
+      margin-right: auto;
+      line-height: 10px;
+    }
   }
-}
-}
-@media only screen and (min-width: 546px) and (max-width: 800px)  {
-.parametrs {
-  width: 90%;
-  padding: 15px;
+  .products {
+    margin-right: 0px;
+    flex-direction: column;
+    line-height: 60px;
+    margin-left: 0px;
 
-  h1 {
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: auto;
-    line-height: 10px;
-  }
-}
-.products {
-  margin-right: 0px;
-  flex-direction: column;
-  line-height: 60px;
-  margin-left: 0px;
-  
+    img {
+      width: 50px;
+      height: 48px;
+      margin-left: 20px;
+    }
 
-  img {
-    width: 50px;
-    height: 48px;
-    margin-left: 20px;
-  }
+    h3,
+    img,
+    div {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 20px;
+    }
+    h3 {
+      margin-top: 15px;
+    }
 
-  h3,
-  img,
-  div {
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 20px;
+    .productUnderline {
+      width: 95%;
+      height: 70px;
+      padding: 20px;
+    }
   }
-  h3 {
-    margin-top: 15px;
+  #trash {
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
   }
-
-  .misiowy {
-    width: 95%;
-    height: 70px;
-    padding: 20px;
-  }
-}
-#trash {
-  margin-bottom: 10px;
-  width: 30px;
-  height: 30px;
-}
-.incrementDecrement {
-
-  button {
-    font-size: 20px;
+  .incrementDecrement {
+    button {
+      font-size: 20px;
+    }
   }
 }
-}
-@media only screen and (min-width: 801px) and (max-width: 1100px)  {
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
   .parametrs {
     width: 60%;
-  h1 {
-    margin-left: 20px;
-    font-size: 25px;
+    h1 {
+      margin-left: 20px;
+      font-size: 25px;
+    }
   }
-}
-.products {
+  .products {
+    flex-direction: column;
+    line-height: 60px;
 
-  flex-direction: column;
-  line-height: 60px;
-  
+    img {
+      width: 50px;
+      height: 50px;
+    }
 
-  img {
-    width: 50px;
-    height: 50px;
-  }
+    h3,
+    img,
+    div {
+      margin-right: auto;
+      margin-left: auto;
+      font-size: 25px;
+    }
+    h3 {
+      margin-top: 15px;
+    }
 
-  h3,
-  img,
-  div {
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 25px;
+    .productUnderline {
+      width: 95%;
+      height: 70px;
+      padding: 20px;
+    }
   }
-  h3 {
-    margin-top: 15px;
+  #trash {
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
   }
-
-  .misiowy {
-    width: 95%;
-    height: 70px;
-    padding: 20px;
+  .incrementDecrement {
+    button {
+      font-size: 20px;
+    }
   }
-}
-#trash {
-  margin-bottom: 10px;
-  width: 30px;
-  height: 30px;
-}
-.incrementDecrement {
-
-  button {
-    font-size: 20px;
-  }
-}
 }
 </style>
