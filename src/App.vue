@@ -31,7 +31,9 @@ export default {
   },
   methods: {
     addItemToCart(product) {
-      !product.quantity ? this.cart.push(product) && product.quantity++ : product.quantity += 1
+      !product.quantity
+        ? this.cart.push(product) && product.quantity++
+        : (product.quantity += 1);
     },
     removeItemFromCart(product) {
       this.cart.splice(this.cart.indexOf(product), 1);
@@ -53,18 +55,6 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  text-decoration: none;
-}
-
 header {
   height: 90px;
   background-color: rgb(0, 255, 42);
@@ -74,7 +64,6 @@ header {
   img {
     width: 70px;
     height: 70px;
-    transition: 0.2s;
   }
   p {
     position: fixed;
