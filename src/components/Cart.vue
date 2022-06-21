@@ -1,34 +1,35 @@
 <template>
-  <div>
+  <b-container>
     <div v-if="cart.length < 1">
       <h1>Your shopping cart is empty!</h1>
       <img src="../assets/original.jpg" />
     </div>
 
-    <div v-if="cart.length > 0" class="parametrs">
-      <h2>Zdjęcie</h2>
-      <h2>Nazwa</h2>
-      <h2>Cena</h2>
-      <h2>Ilość</h2>
-    </div>
     <div class="products">
+      <div v-if="cart.length > 0" class="parametrs">
+        <h2>Zdjęcie</h2>
+        <h2>Nazwa</h2>
+        <h2>Cena</h2>
+        <h2>Ilość</h2>
+      </div>
       <div v-for="product in cart" :key="product" class="productUnderline">
         <img :src="product.image" />
         <h3>{{ product.name }}</h3>
         <h3>{{ product.cost }}</h3>
-
-        <button class="plusMinus" @click="increment(product)">+</button>
-        <p>{{ product.quantity }}</p>
-        <button class="plusMinus" @click="decrement(product)">-</button>
+        <div style="display: flex; margin-left: 50px;">
+          <button class="plusMinus" @click="increment(product)">+</button>
+          <h3>{{ product.quantity }}</h3>
+          <button class="plusMinus" @click="decrement(product)">-</button>
+        </div>
 
         <button @click="removeItemFromCart(product)" id="trashbutton">
-          <img src="../assets/trash.png" id="trash" />
+          <img src="../assets/trash.png" id="trash" class="photo" />
         </button>
       </div>
 
       <div class="totalPrice">Total price: {{ sumTotals }}$</div>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -59,131 +60,69 @@ export default {
 
 <style lang="scss" scoped>
 .products {
-  display: flex;
-  margin-right: 150px;
-  margin-left: 150px;
-  flex-direction: column;
+  width: 55%;
+  justify-content: center;
+  margin: auto;
 
   img {
-    width: 50px;
+    width: 70px;
     height: 50px;
-    padding: 5px;
+  }
+  .photo {
+    width: 40px;
+    height: 40px;
   }
 
-  h3,
-  img,
-  div {
-    margin-right: auto;
-    margin-left: 28px;
-    font-size: 35px;
+  h3 {
+    margin: auto;
   }
 
   .productUnderline {
-    width: 95%;
-    height: 70px;
-    display: flex;
-    padding: 20px;
     border-bottom: 1px solid grey;
   }
 }
+.productUnderline,
 .parametrs {
-  width: 79%;
   display: flex;
-  padding: 10px;
-  justify-content: center;
-  margin: auto;
+  padding: 5px;
+}
+.parametrs {
   border-bottom: 3px solid black;
 
   h2 {
-    margin-left: 60px;
-    width: 19%;
+    width: 27%;
+    font-size: 20px;
   }
 }
 
-.plusMinus {
+.plusMinus,
+#trashbutton,
+#trash {
   background: none;
   border: none;
-}
-#trash {
-  margin-bottom: 50px;
-  background: none;
-  width: 50px;
-  height: 50px;
 }
 #trashbutton {
-  background: none;
-  border: none;
-
+  margin-left: 25px;
+  margin-right: 25px;
   &:hover {
     filter: contrast(50%);
   }
 }
-
-@media screen and (max-width: 545px) {
-  .parametrs {
-    width: 95%;
-    padding: 15px;
-
-    h2 {
-      font-size: 20px;
-      margin-left: 25px;
-    }
-  }
-  .products {
-    margin-right: 0px;
-    margin-left: 0px;
-
-    h3,
-    img,
-    div {
-      margin-right: auto;
-      margin-left: auto;
-      font-size: 20px;
-    }
-  }
-  #trash {
-    width: 40px;
-    height: 40px;
-  }
-}
-@media only screen and (min-width: 546px) and (max-width: 800px) {
+@media only screen and (max-width: 545px) {
   .parametrs {
     width: 95%;
   }
   .products {
-    margin-right: 0px;
-    line-height: 60px;
-    margin-left: 0px;
-
-    h3,
-    img,
-    div {
-      margin-right: auto;
-      margin-left: auto;
-      font-size: 20px;
-    }
-    h3 {
-      margin-top: 15px;
-    }
-  }
-  #trash {
-    margin-bottom: 10px;
-    width: 30px;
-    height: 30px;
+    width: 92%;
   }
 }
-@media only screen and (min-width: 801px) and (max-width: 1100px) {
-  .products {
-    line-height: 60px;
 
-    h3,
-    img,
-    div {
-      font-size: 25px;
-    }
-    h3 {
-      margin-top: 15px;
-    }
+@media only screen and (min-width: 546px) and (max-width: 1200px) {
+  .parametrs {
+    width: 95%;
+  }
+  .products {
+    width: 92%;
   }
 }
 </style>
