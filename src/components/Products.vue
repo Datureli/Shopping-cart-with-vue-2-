@@ -1,15 +1,16 @@
 <template>
-  <b-row>
-    <b-container>
+  <b-container>
       <div class="products">
-        <div v-for="(product, index) in products" :key="index">
+        <div v-for="product in products" :key="product">
           <b-col
             id="ramka"
-            style=" margin: 10px 0px 5px 0px;
+            style="
+              margin: 10px 0px 5px 0px;
               background: whitesmoke;
               display: flex;
               width: 375px;
-              height: 160px;       "
+              height: 160px;
+            "
           >
             <img
               :src="product.image"
@@ -32,11 +33,7 @@
           </b-col>
         </div>
       </div>
-    </b-container>
-    <b-container>
-      <b-row> </b-row>
-    </b-container>
-  </b-row>
+  </b-container>
 </template>
 
 <script>

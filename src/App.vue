@@ -27,7 +27,6 @@ export default {
     return {
       page: "products",
       cart: [],
-      product: true,
     };
   },
   methods: {
@@ -43,11 +42,11 @@ export default {
   },
   computed: {
     sumQuantity() {
-      let t = 0;
+      let total = 0;
       for (let index = 0; index < this.cart.length; index++) {
-        t += this.cart[index].quantity;
+        total += this.cart[index].quantity;
       }
-      return t;
+      return total;
     },
   },
 };
