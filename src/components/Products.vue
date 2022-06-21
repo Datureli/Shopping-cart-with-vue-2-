@@ -52,13 +52,12 @@ export default {
       this.$emit("addItemToCart", product);
     },
   },
-
 };
 </script>
 
 <style lang="scss" scoped>
 .ramka {
-  margin: 10px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
   display: flex;
   width: 375px;
   height: 160px;
