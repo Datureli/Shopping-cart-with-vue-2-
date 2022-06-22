@@ -4,7 +4,7 @@
       <div v-for="product in products" :key="product">
         <b-col class="ramka">
           <img :src="product.image" />
-          <b-col style="margin: 20px 10px auto">
+          <b-col style="margin: 10px 10px auto">
             <h3>{{ product.name }}</h3>
             <div class="cost">{{ product.cost }}</div>
             <b-button @click="addItemToCart(product)">Add to cart</b-button>
