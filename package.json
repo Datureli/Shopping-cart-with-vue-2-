@@ -43,5 +43,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "devDependencies": {
+    "jest": "^28.1.1"
+  }
 }
