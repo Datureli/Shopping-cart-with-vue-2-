@@ -10,14 +10,16 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html"]
+    "coverageReporters": [
+      "html"
+    ]
   },
   "dependencies": {
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "sass": "^1.49.0",
     "sass-loader": "^10.1.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.14"
   },
   " Dependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -50,6 +52,7 @@
     "not dead"
   ],
   "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "^5.0.6",
     "jest": "^28.1.1"
   }
 }
