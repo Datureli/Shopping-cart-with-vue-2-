@@ -5,15 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "CI= vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test": "jest",
-    "test:unit": "vue-cli-service test:unit"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "html"
-    ]
+    "test": "jest"
   },
   "dependencies": {
     "bootstrap-vue": "^2.21.2",
@@ -22,16 +16,12 @@
     "sass-loader": "^10.1.1",
     "vue": "^2.6.14"
   },
-  " Dependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.22.10",
-    "sass-loader": "^7.3.1",
-    "vue-template-compiler": "^2.6.11"
+  "devDependencies": {
+    "@vue/cli-plugin-unit-jest": "~5.0.0",
+    "@vue/test-utils": "^1.1.3",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
+    "babel-jest": "^27.0.6",
+    "jest": "^28.1.1"
   },
   "eslintConfig": {
     "root": true,
@@ -52,8 +42,22 @@
     "last 2 versions",
     "not dead"
   ],
-  "devDependencies": {
-    "@vue/cli-plugin-unit-jest": "^5.0.6",
-    "jest": "^28.1.1"
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "html"
+    ],
+    "preset": "@vue/cli-plugin-unit-jest/presets/no-babel"
+  },
+  " Dependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.22.10",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.11"
   }
 }
