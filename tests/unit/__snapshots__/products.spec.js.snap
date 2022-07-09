@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`addToCart is emitted renders message when component is created 1`] = `
+exports[`addToCart Component Check if product is emitted corectlly 1`] = `
 <b-container>
   <div
     class="products"

@@ -13,7 +13,4 @@ describe("addToCart Component", () => {
 
     expect(shallowMount(Products).element).toMatchSnapshot();
   });
-  it("check", () => {
-
-  })
 });
